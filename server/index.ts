@@ -85,12 +85,9 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 
 export default app;
 
-if (!process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`========================================================`);
-    console.log(`⚡ DaySync AI Operating System Server running on :${PORT}`);
-    console.log(`🧠 AI Engine: Gemini 2.5 Flash Adaptive Morning Core`);
-    console.log(`🛡️ Auth & Data Isolation: Enforced with JWT & Scopes`);
-    console.log(`========================================================`);
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    service: 'DaySync AI Backend',
+    status: 'running'
   });
-}
+});
