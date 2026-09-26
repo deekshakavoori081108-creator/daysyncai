@@ -65,14 +65,13 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
-// Production Static Serving
-if (process.env.NODE_ENV === 'production') {
-  const clientDist = path.join(__dirname, '../dist/client');
-  app.use(express.static(clientDist));
-  app.get('*', (req: Request, res: Response) => {
-    res.sendFile(path.join(clientDist, 'index.html'));
+// Backend health/root endpoint
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    service: 'DaySync AI Backend',
+    status: 'running'
   });
-}
+}); 
 
 // Global Error Handler
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
