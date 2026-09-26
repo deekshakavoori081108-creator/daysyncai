@@ -6,7 +6,8 @@ import { weatherProvider } from '../providers/weather.provider';
 import { calendarProvider } from '../providers/calendar.provider';
 import { trafficProvider } from '../providers/traffic.provider';
 import { geminiService } from './gemini.service';
-import { MorningPlan, MorningMode } from '../../shared/schemas/index';
+import { MorningPlan } from '../../shared/schemas/index';
+import { MorningMode } from '../../shared/constants/index';
 
 export class MorningEngineService {
   async getOrGenerateTodayPlan(

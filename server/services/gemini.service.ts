@@ -139,7 +139,7 @@ Required JSON Output Schema:
   async generateDNAInsights(inputData: {
     statistics: any;
     recentSessions: any[];
-    taskPatterns: any[];
+    taskPatterns: { frequentlySkipped: any[]; reliableTasks: any[] };
     existingInsights: any[];
   }): Promise<AIInsight[]> {
     if (ai && process.env.GEMINI_API_KEY) {
